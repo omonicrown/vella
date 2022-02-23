@@ -1,22 +1,37 @@
 import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import UserInfo from './embededwidget.js';
 
 function App() {
+
+
+  const [count, setCount] = useState([]);
+
+React.useEffect(() => {
+    let result = fetch('https://fakestoreapi.com/products/1')
+    .then(res=>res.json())
+    .then(json=>{
+      setCount(json);
+    })
+  }, []);
+
+ 
+  //result(data);
+console.log(count);
+  const config = {
+    name : count.title,
+    price: count.price,
+    currency: count.category,
+    id:count.id
+    };
+
+    
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      
+        <UserInfo config={config}/>
       </header>
     </div>
   );
