@@ -25,7 +25,7 @@ export default function Modal(props,toggle) {
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
                       ×
                     </span>
-                  </button>
+                  </button> 
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
